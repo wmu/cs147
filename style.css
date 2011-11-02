@@ -7,3 +7,22 @@ b,
 strong {
   font-weight: bold;
 }
+
+#leaderboard .ui-block-a {
+  text-align: right;
+  width: 15%;
+}
+
+#leaderboard .ui-block-a .place_num {
+  margin-right: 20px;
+  text-align: right;
+}
+
+#leaderboard .ui-block-b,
+#leaderboard .ui-block-c {
+  width: 42.5%;
+}
+
+#leaderboard .ui-block-c {
+  text-align: right;
+}

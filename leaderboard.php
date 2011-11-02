@@ -1,16 +1,22 @@
 <?php
 include('header.php');
 ?>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae libero dui, non adipiscing purus. Suspendisse mauris massa, vehicula nec tincidunt ornare, blandit non neque. Morbi imperdiet vehicula laoreet. Quisque erat ante, vestibulum eget eleifend ac, bibendum vel velit. Aenean vel lorem iaculis dolor rhoncus dapibus. Phasellus lorem sem, ultrices non iaculis et, laoreet sed leo. In hac habitasse platea dictumst. Donec laoreet vestibulum vulputate. Cras placerat varius odio, in porta elit porta et. Fusce adipiscing, nulla sit amet dignissim sagittis, mi neque tincidunt ante, varius pharetra metus justo quis felis. Phasellus augue orci, tristique vel tristique non, dignissim eu purus.
-<br><br>
-Curabitur porttitor, risus mollis ornare pharetra, arcu dolor blandit nisl, et ultrices nunc nulla sed dolor. Donec porttitor commodo orci in malesuada. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus non neque lacus, et auctor risus. Donec augue magna, venenatis pharetra rutrum vel, iaculis ut orci. Pellentesque consequat orci velit. Cras interdum turpis non ligula varius sit amet consectetur orci consectetur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec tincidunt, metus at pellentesque blandit, mauris mi pretium felis, sed mollis lacus arcu sit amet nisl. Maecenas volutpat rhoncus dolor vel pulvinar. Vivamus vulputate, risus id imperdiet tincidunt, risus diam rhoncus odio, sed sollicitudin libero ligula nec sem. In sed ante diam.
-<br><br>
-Nulla justo sem, venenatis in cursus eu, viverra et eros. Etiam ac quam lectus, pharetra accumsan nisi. Maecenas ut euismod ipsum. Nam dui orci, tempor ac pretium sed, consectetur sed lectus. Nulla a magna lectus, in aliquet ipsum. Curabitur non pulvinar dui. Morbi vel tristique risus. Maecenas ut libero libero, quis suscipit dolor. Nulla ipsum urna, sagittis a tincidunt non, egestas sit amet neque. Nulla aliquam risus quis magna eleifend id auctor libero suscipit. Nam purus nisl, molestie semper eleifend vitae, suscipit sit amet eros. Praesent purus quam, tristique sit amet commodo sit amet, luctus ut risus. Nunc sit amet diam mi. Praesent urna elit, sagittis a molestie eget, tempor ac orci. Pellentesque turpis sem, volutpat sit amet eleifend eget, facilisis in tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-<br><br>
-Sed ut varius arcu. In nec nisl turpis. Nunc nec ante in risus suscipit malesuada laoreet in justo. Sed elit orci, feugiat vitae pharetra vel, bibendum sed massa. Donec sem tortor, laoreet in volutpat id, semper ut nisl. Fusce ornare congue arcu, pulvinar scelerisque neque venenatis id. Quisque orci massa, molestie hendrerit venenatis vitae, sagittis at nisl. Aliquam tincidunt nunc sed orci fermentum consequat. Nunc at augue mi, quis porttitor eros.
-<br><br>
-Quisque sapien diam, malesuada consectetur ullamcorper vitae, rutrum et dui. Donec ac eleifend nunc. Vestibulum odio nibh, hendrerit id suscipit at, dictum a ipsum. Nunc bibendum, libero id volutpat facilisis, eros diam varius magna, a facilisis odio quam ac odio. Maecenas sit amet risus quis dui mattis feugiat quis vel nibh. Morbi condimentum, urna sit amet fermentum sollicitudin, eros enim cursus lorem, quis condimentum est nisl a ante. Duis eget leo ut nibh lacinia porta nec non nulla. Vestibulum cursus est vel velit adipiscing sit amet sagittis magna ullamcorper.
-<br><br>
-Quisque sapien diam, malesuada consectetur ullamcorper vitae, rutrum et dui. Donec ac eleifend nunc. Vestibulum odio nibh, hendrerit id suscipit at, dictum a ipsum. Nunc bibendum, libero id volutpat facilisis, eros diam varius magna, a facilisis odio quam ac odio. Maecenas sit amet risus quis dui mattis feugiat quis vel nibh. Morbi condimentum, urna sit amet fermentum sollicitudin, eros enim cursus lorem, quis condimentum est nisl a ante. Duis eget leo ut nibh lacinia porta nec non nulla. Vestibulum cursus est vel velit adipiscing sit amet sagittis magna ullamcorper.
+
+<?php
+$num_leaders = 10;
+echo "<div class=\"ui-grid-b\" id=\"leaderboard\">\n";
+for ($i=0; $i<$num_leaders; ++$i) {
+	echo "<div class=\"ui-block-a\">\n";
+	echo '<span class="place_num">'.($i+1).'</span>';
+	echo "\n</div>\n";
+	echo "<div class=\"ui-block-b\">\n";
+	echo 'Bob';
+	echo "\n</div>\n";
+	echo "<div class=\"ui-block-c\">\n";
+	echo '100';
+	echo "\n</div>\n";
+}
+echo "\n</div>\n";
+?>
 
 <?php include('footer.php'); ?>

@@ -9,8 +9,8 @@ Logging activity goes here.
 <fieldset data-role="controlgroup" data-type="horizontal">
 	<legend>Date:</legend>
 
-    <label for="select-choice-month">Month</label>
-<select name="select-choice-month" id="select-choice-month">
+    <label for="month">Month</label>
+<select name="month" id="month">
 	<?php
 	$today = time();
 	for ($i = 1; $i <= 12; ++$i) {
@@ -21,8 +21,8 @@ Logging activity goes here.
 	?>
 </select>
 
-	<label for="select-choice-day">Day</label>
-<select name="select-choice-day" id="select-choice-day">
+	<label for="day">Day</label>
+<select name="day" id="day">
 	<?php
 	// this should be error checked.
 	for ($i = 1; $i <= 31; ++$i) {
@@ -33,8 +33,8 @@ Logging activity goes here.
 	?>
 </select>
 
-<label for="select-choice-year">Year</label>
-<select name="select-choice-year" id="select-choice-year">
+<label for="year">Year</label>
+<select name="year" id="year">
 	<?php
 	$today = time();
 	for ($i = 2010; $i <= 2012; ++$i) {
@@ -46,26 +46,20 @@ Logging activity goes here.
 </select>
 </fieldset>
 </div>
-<div data-role="fieldcontain">
-   <label for="slider">Bench:</label>
-   <input type="range" name="slider" id="slider" value="0" min="0" max="100" step="1"  />
+<div id="log_form">
+<?php
+foreach ($global_activities as $act => $act_details) {
+	echo '<b>' . $act_details['name'] . "</b><br><br>\n";
+	echo "<div data-role=\"fieldcontain\">\n";
+	foreach ($act_details['details'] as $det => $det_name) {
+	  $name = $act . '-' . $det;
+	  echo '<label for="' .$name. '">' .$det_name. ":</label>\n"
+	  . '<input type="number" name="'.$name."\" value=\"0\" />\n";
+	}
+	echo "</div>\n";
+}
+?>
 </div>
-<div data-role="fieldcontain">
-    <label for="slider">Biceps:</label>
-    <input type="range" name="slider" id="slider" value="0" min="0" max="100" step="1"  />
-</div>
-<div data-role="fieldcontain">
-    <label for="slider">Push-ups:</label>
-    <input type="range" name="slider" id="slider" value="0" min="0" max="100" step="1"  />
-</div>
-<div data-role="fieldcontain">
-    <label for="slider">Running:</label>
-    <input type="range" name="slider" id="slider" value="0" min="0" max="20" step="0.1" />
-</div>	
-<div data-role="fieldcontain">
-   <label for="slider">Sit-ups:</label>
-   <input type="range" name="slider" id="slider" value="0" min="0" max="100" step="1"  />
-</div>	
 <input type="submit" value="log!" data-icon="check">
 </form>
 

@@ -3,6 +3,7 @@ body {
   line-height: 18px;
 }
 
+b,
 strong {
   font-weight: bold;
 }

@@ -1,4 +1,34 @@
 <?php
+$global_activities =
+	array('bench' => array('name' => 'Bench',
+							'details' => array('reps' => 'Reps',
+								 'weight' => 'Weight',
+							)
+						),
+		 'biceps' => array('name' => 'Biceps',
+                           'details' => array('reps' => 'Reps',
+								'weight' => 'Weight',
+							)
+					),
+		'pushups' => array('name' => 'Push-ups',
+                           'details' => array('num' => 'Number',
+							)
+					),
+		'running' => array('name' => 'Running',
+                           'details' => array('miles' => 'Miles',
+								'time' => 'Minutes',
+							)
+					),
+		'situps' => array('name' => 'Sit-ups',
+                          'details' => array('num' => 'Number',
+							)
+					),
+		'other' => array('name' => 'Other',
+                          'details' => array('time' => 'Minutes',
+							)
+					),
+    );
+
 function show_back()
 {
   $url = basename($_SERVER['PHP_SELF']);

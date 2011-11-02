@@ -27,7 +27,7 @@ foreach ($global_activities as $act => $act_details) {
 	foreach ($act_details['details'] as $det => $det_name) {
 	  $name = $act . '-' . $det;
 	  $num = $_POST[$name] ? $_POST[$name] : 0;
-	  echo '<input type="hidden" name="' .$det_name. '" value="' . $num . "\"/>\n";
+	  echo '<input type="hidden" name="' .$name. '" value="' . $num . "\"/>\n";
 	}
 }
 ?>

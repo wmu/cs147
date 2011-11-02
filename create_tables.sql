@@ -1,2 +1,2 @@
-create table History(userid int, time string, bench_weight int, bench_reps int, biceps_weight int, biceps_reps int, pushups int, situps int, running_time int, running_dist int, time_spent int, primary key(userid, time));
+create table activity (userid int, time string, type int, entry1 int, entry2 int, entry3 int, primary key(userid, time));
 

@@ -4,8 +4,8 @@ include('header.php');
 
 <h1>Points explanation</h1>
 <p>
-Weight Based Exercises: POINTS = (REPS * WEIGHT)/10 <br/> 
-Running: POINTS = MILES/TIME * 1500 <br/>
+Weight Based Exercises: POINTS = (REPS * WEIGHT) <br/> 
+Running: POINTS = MILES*TIME * 15 <br/>
 Time Based: POINTS = TIME * 50 <br/>
 (e.g. 30 min workout = 1500 pts) <br/>
 </p>

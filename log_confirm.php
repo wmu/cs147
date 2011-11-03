@@ -10,7 +10,7 @@ Saved!
 $finalstring = $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
 //need to eventually change id to actual user id
 try{
-	$date = date("Y-m-d H:i");
+	$date = date("Y-m-d H:i:s");
 	$id = 2;
 	$total_points = 0;
 	foreach ($global_activities as $act => $act_details) {

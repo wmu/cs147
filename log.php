@@ -2,7 +2,7 @@
 include('header.php');
 ?>
 
-Logging activity goes here.
+Please enter positive integer values for the following information:
 <br><br>
 <form action="log_ask.php" method="post">
 <div data-role="fieldcontain">

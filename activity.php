@@ -2,10 +2,7 @@
 include('header.php');
 include('sqlitedb.php');
 ?>
-
-
-<b> Recent friend activity </b>
-<br/> <br/>
+<br/>
 <?php
 	//total number of recent activities that need to be displayed
 	$total_number_displayed = 10;

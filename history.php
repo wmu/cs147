@@ -27,7 +27,7 @@ foreach ($global_activities as $act => $act_details) {
 	  $num++;
 	}
 	try{
-		$query = "select * from activity where type='".$act."' and userid=".$userid.";";
+		$query = "select * from activity where type='".$act."' and userid=".$userid." order by time desc;";
 		$result = $db->query($query);
 		for ($i = 0; $i < $num_entries; ++$i) {
 			$items=$result->fetch();

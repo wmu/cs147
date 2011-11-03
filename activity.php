@@ -21,28 +21,28 @@ include('sqlitedb.php');
 			$item = $result->fetch();
 			$type = $item["type"];
 			//type 0 is bench 
-			if ($type == 0){
+			if (strcmp('bench',$type) == 0){
 				//add name for user later
 				echo "User ".$item["userid"]." benched ".$item["entry1"]." reps of ".$item["entry2"]." pounds.";
 				echo "<br/>".$item["time"];
 				echo "<br/> <br/>";
 			}
-			else if ($type == 1){
+			else if (strcmp('biceps',$type) == 0){
 				echo "User ".$item["userid"]." did ".$item["entry1"]." reps of ".$item["entry2"]." pounds for biceps.";
 				echo "<br/>".$item["time"];
 				echo "<br/> <br/>";
 			}
-			else if ($type == 2){
+			else if (strcmp('pushups',$type) == 0){
 				echo "User ".$item["userid"]." did ".$item["entry1"]." pushups.";
 				echo "<br/>".$item["time"];
 				echo "<br/> <br/>";
 			}
-			else if ($type == 3){
+			else if (strcmp('running',$type) == 0){
 				echo "User ".$item["userid"]." ran ".$item["entry1"]." miles in ".$item["entry2"]." minutes.";
 				echo "<br/>".$item["time"];
 				echo "<br/> <br/>";
 			}
-			else if ($type == 4){
+			else if (strcmp('situps',$type) == 0){
 				echo "User ".$item["userid"]." did ".$item["entry1"]." sit-ups.";
 				echo "<br/>".$item["time"];
 				echo "<br/> <br/>";

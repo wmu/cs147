@@ -14,11 +14,11 @@ echo $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
 $date = date("Y-m-d H:i");
 
 try{
-	$i = 0;
+	//need to eventually change id to actual user id
 	$id = 2;
 	foreach ($global_activities as $act => $act_details) {
 		echo '<b>' . $act_details['name'] . "</b><br>\n";
-		$query = "insert into activity values ($id,'$date',".$i.",";
+		$query = "insert into activity values ($id,'$date','$act',";
 		$total = 0;
 		foreach ($act_details['details'] as $det => $det_name) {
 			$name = $act . '-' . $det;
@@ -38,7 +38,6 @@ try{
 				$query.="0);";
 		}
 		echo "<br><br>\n";
-		$i++;
 		if (strcmp($query,"null") != 0){
 			$insertintodatabase = $db->query($query);
 		}

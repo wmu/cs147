@@ -7,7 +7,7 @@ $tabs = array("leaderboard.php" => "&#10112;",
 			  "history.php" => "&#9719;",
 			  "log.php" => "&#9998");
 foreach ($tabs as $url => $text) {
-  echo '<li><a href="'.$url.'" class="'.get_navbar_class($url).'">'.$text.'</a></li>';
+  echo '<li><a href="'.$url.'" class="'.get_navbar_class($url).'" rel="external">'.$text.'</a></li>';
 }
 ?>
     </ul>

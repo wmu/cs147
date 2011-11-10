@@ -10,8 +10,7 @@ if ($user) {
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <body>
-    <?php 
-	include('header_index.php');?>
+	<?php include('header_index.php');?>
 	<br/> <br/>
 	  <center> 
 	<p> Welcome to the iWorkout Application! </p>

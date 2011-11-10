@@ -2,8 +2,6 @@
   include('utils.php');
 ?>
 
-<!DOCTYPE html>
-<html>
 <head>
 <title>iWorkout</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +14,6 @@
 <script src="jquery.mobile-1.0rc2.js"></script>
 
 </head>
-<body>
 <div data-role="page">
   <div data-role="header">
 

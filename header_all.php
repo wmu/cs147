@@ -3,13 +3,13 @@ include('utils.php');
 include('facebook_header.php');
 ?>
 
-<!DOCTYPE html>
 <?php
    if ($user == 0){
 	    echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/index.php'>";
 	    exit;
     }
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>iWorkout</title>

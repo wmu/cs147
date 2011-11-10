@@ -1,21 +1,22 @@
 <?php
 include('facebook_header.php');
 ?>
-
+<?php
+if ($user) {
+	echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
+	exit;
+    } ?>
+    
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <body>
-    <?php if ($user_profile) {
-	echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
-	exit;
-    } else {
+    <?php 
 	include('header_index.php');?>
 	<br/> <br/>
 	  <center> 
 	<p> Welcome to the iWorkout Application! </p>
 	<br/>
 	<fb:login-button></fb:login-button> </center>
-    <?php } ?>
     <div id="fb-root"></div>
     <script>               
       window.fbAsyncInit = function() {

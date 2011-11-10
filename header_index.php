@@ -1,15 +1,8 @@
 <?php
-include('utils.php');
-include('facebook_header.php');
+  include('utils.php');
 ?>
 
 <!DOCTYPE html>
-<?php
-   if ($user == 0){
-	    echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/index.php'>";
-	    exit;
-    }
-?>
 <html>
 <head>
 <title>iWorkout</title>
@@ -26,17 +19,8 @@ include('facebook_header.php');
 <body>
 <div data-role="page">
   <div data-role="header">
-    <?php
-	  if (show_back()) {
-		echo '<a href="javascript:history.back()" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left"></a>';
-	  }
-	?>
+
     <h1><?php echo get_hdr_title(); ?></h1>
-	<?php
-	  if (show_logout()) {
-		echo '<a href='.$facebook->getLogoutUrl().' data-icon="back" data-iconpos="notext" class="ui-btn-right"></a>';
-	  }
-	?>
    
   </div><!-- /header -->
 <div data-role="content">

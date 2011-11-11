@@ -27,6 +27,10 @@ strong {
   text-align: right;
 }
 
+.ui-selectmenu {
+  z-index: 1001 !important;
+}
+
 .ui-field-contain {
   border-bottom: 0px;
 }

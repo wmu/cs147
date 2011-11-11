@@ -23,6 +23,10 @@ try{
 			}
 			if ($user == $leaders["userid"])
 				$user_name = "You";
+			if ($user_info != false){
+				$picture_url = 'http://graph.facebook.com/'.$leaders["userid"].'/picture';
+				echo "<img src =".$picture_url.' />';
+			}
 			echo $user_name;
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-c\">\n";

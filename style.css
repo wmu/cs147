@@ -18,9 +18,12 @@ strong {
   text-align: right;
 }
 
-#leaderboard .ui-block-b,
+#leaderboard .ui-block-b{
+  width: 70%;
+}
+
 #leaderboard .ui-block-c {
-  width: 42.5%;
+  width: 15%;
 }
 
 #leaderboard .ui-block-c {

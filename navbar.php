@@ -1,13 +1,21 @@
 <div data-role="footer" data-id="myfooter" data-position="fixed" style="top: 0px;" role="contentinfo" class="ui-footer ui-bar-a ui-footer-fixed fade ui-fixed-inline" >		
   <div data-role="navbar">
     <ul>
+      <style>	
+		.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 <?php
-$tabs = array("leaderboard.php" => "&#10112;",
-			  "activity.php" => "&#9638;",
-			  "history.php" => "&#9719;",
-			  "log.php" => "&#9998");
+$tabs = array("leaderboard.php" => "leaderboard",
+			  "activity.php" => "activity",
+			  "history.php" => "history",
+			  "log.php" => "log");
+foreach($tabs as $url => $text){
+  echo '#'.get_navbar_class($url).'ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; background-size: 24px 22px; }';
+}
+?>
+      </style>
 foreach ($tabs as $url => $text) {
-  echo '<li><a href="'.$url.'" class="'.get_navbar_class($url).'" rel="external">'.$text.'</a></li>';
+  echo '<li><a href="'.$url.'" class="'.get_navbar_class($url).'" rel="external"></a></li>';
 }
 ?>
     </ul>

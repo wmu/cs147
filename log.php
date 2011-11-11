@@ -41,9 +41,8 @@ function selectChange() {
   $(this).children("option:selected").each(function () {
     var name = $(this).val(); 
     var xButton = $("<a>").attr("href", "#").attr("data-role", "button").attr("data-icon", "delete").attr("data-iconpos", "notext").attr("data-inline", true).attr("class", "x_button").text("Delete").buttonMarkup();
-    //<a href="index.html" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a> 
-    var title = $("<b>").append(globalActivities[name]['name']).append($("<br>"));
-    var fieldDiv = $("<div>").attr("id", name).append(xButton).append(title);
+    var title = $("<div>").addClass("title").append($("<b>").append(globalActivities[name]['name']));
+    var fieldDiv = $("<div>").attr("id", name).append(xButton).append(title).append($("<br>"));
     deselect(name);
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;

@@ -16,14 +16,22 @@ try{
 			echo '<span class="place_num">'.($i+1).'</span>';
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-b\">\n";
+			echo "<div class=\"user_pic\">\n";
 			$user_info = $facebook->api('/'.$leaders["userid"]);
 			$user_name = "User ".$leaders["userid"];
 			if ($user_info != false){
 				$user_name= $user_info["name"];
 			}
 			if ($user == $leaders["userid"])
-				$user_name = "You";
+				$user_name = "<b>You</b>";
+			if ($user_info != false){
+				$picture_url = 'http://graph.facebook.com/'.$leaders["userid"].'/picture';
+				echo "<img src =".$picture_url.' />';
+			}
+			echo "\n</div>\n";
+			echo "<div class=\"user_name\">\n";
 			echo $user_name;
+			echo "\n</div>\n";
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-c\">\n";
 			echo $leaders["points"];

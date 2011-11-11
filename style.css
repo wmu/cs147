@@ -10,21 +10,41 @@ strong {
 
 #leaderboard .ui-block-a {
   text-align: right;
-  width: 15%;
+  width: 8%;
 }
 
 #leaderboard .ui-block-a .place_num {
-  margin-right: 20px;
+  font-size: 1.3em;
+  margin-right: 10px;
   text-align: right;
 }
 
-#leaderboard .ui-block-b,
-#leaderboard .ui-block-c {
-  width: 42.5%;
+#leaderboard .ui-block-b {
+  width: 65%;
+}
+
+#leaderboard .ui-block-b .user_pic {
+  display: inline-block;
+  float: left;
+  width: 50px;
+}
+
+#leaderboard .ui-block-b .user_name {
+  display: inline-block;
+  float: left;
+  padding: 0px 0px 0px 7px;
 }
 
 #leaderboard .ui-block-c {
+  font-size: 1.3em;
   text-align: right;
+  width: 27%;
+}
+
+#leaderboard .ui-block-a,
+#leaderboard .ui-block-b .user_name,
+#leaderboard .ui-block-c {
+  padding-top: 15px;
 }
 
 .ui-selectmenu {
@@ -38,4 +58,33 @@ strong {
 label.error {
   color: #ff0000;
   display: block !important;
+}
+
+.ui-header .ui-title {
+  margin: 0.6em 24px 0.8em;
+}
+
+.ui-field-contain label {
+  vertical-align: top;
+  display: inline-block;
+  width: 20%;
+  margin: 0 2% 0 0;
+}
+
+.ui-field-contain input {
+  vertical-align: top;
+  display: inline-block;
+  width: 80%;
+  margin: 0 2% 0 0;
+}
+
+#log_form .x_button {
+  margin: 0px 10px 10px 0px;
+}
+
+#log_form .title {
+  display: inline-block;
+  position: relative;
+  top: 0.4em;
+  vertical-align: top;
 }

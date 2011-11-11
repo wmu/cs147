@@ -39,6 +39,16 @@ function show_back()
   return true;
 }
 
+function get_help_url()
+{
+  $url = basename($_SERVER['PHP_SELF']);
+  $need_help_urls = array('leaderboard.php', 'activity.php', 'history.php', 'log.php');
+  if (in_array($url, $need_help_urls)) {
+    return "dialog_tutorial_".$url;
+  }
+  return false;
+}
+
 function show_logout()
 {
   $url = basename($_SERVER['PHP_SELF']);
@@ -59,6 +69,10 @@ function get_hdr_title()
 						'activity.php' => 'Friend Activity',
 						'history.php' => 'Your History',
 						'log.php' => 'Log Activity',
+            'dialog_tutorial_leaderboard.php' => 'Leaderboard',
+						'dialog_tutorial_activity.php' => 'Friend Activity',
+						'dialog_tutorial_history.php' => 'Your History',
+						'dialog_tutorial_log.php' => 'Log Activity',
 						'log_ask.php' => 'Log Activity',
 						'log_confirm.php' => 'Log Activity',
 						'points.php' => 'Point System');

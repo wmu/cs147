@@ -28,8 +28,8 @@ include('facebook_header.php');
 <div data-role="page">
   <div data-role="header">
     <?php
-	  if (show_back()) {
-		echo '<a href="javascript:history.back()" data-icon="arrow-l" data-iconpos="notext" class="ui-btn-left"></a>';
+	  if ($help_url = get_help_url()) {
+		echo '<a href="'.$help_url.'" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-left"></a>';
 	  }
 	?>
     <h1><?php echo get_hdr_title(); ?></h1>

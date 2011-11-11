@@ -42,3 +42,7 @@ label.error {
   color: #ff0000;
   display: block !important;
 }
+
+.ui-header .ui-title {
+  margin: 0.6em 24px 0.8em;
+}

@@ -35,7 +35,7 @@ include('facebook_header.php');
     <h1><?php echo get_hdr_title(); ?></h1>
 	<?php
 	  if (show_logout()) {
-		echo "";//'<a href='.$facebook->getLogoutUrl().' data-icon="back" data-iconpos="notext" class="ui-btn-right"></a>';
+		echo '<a href='.$facebook->getLogoutUrl().' data-icon="back" data-iconpos="notext" class="ui-btn-right"></a>';
 	  }
 	?>
    

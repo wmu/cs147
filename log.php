@@ -2,9 +2,55 @@
 include('header.php');
 ?>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#logForm").validate();
+  $("#select-activity").change(selectChange);
+});
+var globalActivities = <?= json_encode($global_activities); ?>;
+
+function deselect(name) {
+  var ind = $("#select-activity").children().index($("#select-activity option[value="+name+"]"));
+  $("#select-activity-menu li[data-option-index="+ind+"]").addClass("ui-disabled").removeClass("ui-btn-hover-c").removeClass("ui-btn-active").attr("aria-disabled", true).attr("aria-selected", false);
+  //
+  /*$("#select-activity-menu").children().each(function() {
+    console.log(name);
+    if (name == $(this).val()) {
+      $(this).attr("disabled", "disabled");
+    }
+  });*/
+}
+
+function selectChange() {
+  $(this).children("option:selected").each(function () {
+    var name = $(this).val(); 
+    var fieldDiv = $("<div>").attr("id", name).append($("<b>").append(globalActivities[name]['name'])).append($("<br>"));
+    /*var select = $(this).parent();
+    var selectClass = "."+select.attr("id")
+    $(selectClass).empty();*/
+    /*inputToActivity[inputToClass.indexOf(select.attr("id"))] = name;*/
+    deselect(name);
+    $.each(globalActivities[name]['details'], function(det, detName) {
+      var labelName = name + '-' + det;
+      var label = $("<label>").attr("for", labelName).text(detName);
+      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).attr("value", 0).addClass("required").addClass("digits");
+      fieldDiv.append(label).append(inputField);
+      $(this).removeAttr("selected");
+    });
+    $("#log_form").append(fieldDiv).append($("<br>"));
+  });
+  $('input').textinput();
+  console.log($(this).val());
+  $(this).val("default");
+  $(this).parent().find(".ui-btn-text").text("Add an activity...");
+  console.log($(this).val());
+  $('select').selectmenu();
+}
+</script>
+
 Please enter positive integer values for the following information:
-<br><br>
-<form action="log_ask.php" method="post">
+<br>
+<form action="log_ask.php" method="post" id="logForm">
 <div data-role="fieldcontain">
 <fieldset data-role="controlgroup" data-type="horizontal">
 	<legend>Date:</legend>
@@ -47,20 +93,22 @@ Please enter positive integer values for the following information:
 </fieldset>
 </div>
 <div id="log_form">
-<?php
-foreach ($global_activities as $act => $act_details) {
-	echo '<b>' . $act_details['name'] . "</b><br><br>\n";
-	echo "<div data-role=\"fieldcontain\">\n";
-	foreach ($act_details['details'] as $det => $det_name) {
-	  $name = $act . '-' . $det;
-	  echo '<label for="' .$name. '">' .$det_name. ":</label>\n"
-	  . '<input type="number" name="'.$name."\" value=\"0\" />\n";
-	}
-	echo "</div>\n";
-}
-?>
 </div>
-<input type="submit" value="log!" data-icon="check">
+<br>
+<div id="select_activity_div">
+<label for="select-activity" class="ui-hidden-accessible">Add activity</label>
+<select name="select-activity" id="select-activity" data-native-menu="false">
+  <option data-placeholder="true" id="option-select-activity-default" value="default">Add an activity...</option>
+  <?php
+    foreach ($global_activities as $act => $act_details) {
+      echo '<option value="' .$act. '">' .$act_details['name']."</option>\n";
+    }
+  ?>
+</select>
+</div>
+<br>
+<input type="submit" value="Log!" data-icon="check" data-theme="b">
 </form>
+
 
 <?php include('footer.php'); ?>

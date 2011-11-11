@@ -26,3 +26,7 @@ strong {
 #leaderboard .ui-block-c {
   text-align: right;
 }
+
+.ui-field-contain {
+  border-bottom: 0px;
+}

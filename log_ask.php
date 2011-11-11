@@ -31,10 +31,8 @@ foreach ($global_activities as $act => $act_details) {
 	}
 }
 ?>
-<input type="submit" value="log!" data-icon="check" data-theme="b">
+<input type="submit" value="Log!" data-icon="check" data-theme="b">
 </form>
-<form action="log.php" method="post">
-<input type="submit" value="cancel" data-icon="delete">
-</form>
+<a href="#" data-rel="back" data-role="button" data-icon="delete">Cancel</a>
 
 <?php include('footer.php'); ?>

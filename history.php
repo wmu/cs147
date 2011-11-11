@@ -56,7 +56,7 @@ foreach ($global_activities as $act => $act_details) {
 	}
 	echo "</div>\n</div>\n";
 }
-?>
+?>
 
 <?php
 /*

@@ -11,6 +11,7 @@
 <script type="text/javascript" src="utils.js"></script>
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="jquery.mobile-1.0rc2.js"></script>
+<script src="jquery.validate.js"></script>
 </head>
 <body>
 <div data-role="page">

@@ -16,7 +16,14 @@ try{
 			echo '<span class="place_num">'.($i+1).'</span>';
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-b\">\n";
-			echo "User ".$leaders["userid"];
+			$user_info = $facebook->api('/'.$leaders["userid"]);
+			$user_name = "User ".$leaders["userid"];
+			if ($user_info != false){
+				$user_name= $user_info["name"];
+			}
+			if ($user == $leaders["userid"])
+				$user_name = "You";
+			echo $user_name;
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-c\">\n";
 			echo $leaders["points"];

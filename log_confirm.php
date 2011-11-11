@@ -11,7 +11,7 @@ $finalstring = $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<b
 //need to eventually change id to actual user id
 try{
 	$date = date("Y-m-d H:i:s");
-	$id = 2;
+	$id = $user;
 	$total_points = 0;
 	foreach ($global_activities as $act => $act_details) {
 		$finalstring.= '<b>' . $act_details['name'] . "</b><br>\n";
@@ -73,7 +73,7 @@ try{
 	$update_query = "update points set points=".$final_points." where userid=".$id.";";
 	$db->query($update_query);
 	echo "You have earned ".$total_points." points from your workout. <br/> <br/>";
-	echo "Your new point total is ".$final_points."<br/>";
+	echo "Your new point total is ".$final_points.". <br/> <br/>";
 	echo $finalstring;
 	
 }

@@ -5,7 +5,7 @@ include('sqlitedb.php');
 
 <?
 //should get actual user id at some point
-$userid = 2;
+$userid = $user;
 foreach ($global_activities as $act => $act_details) {
 	echo '<div data-role="collapsible">';
 	echo '<h3>' .$act_details['name']. '</h3>';
@@ -34,7 +34,7 @@ foreach ($global_activities as $act => $act_details) {
 			if (items != null){
 				$num = 0;
 				echo '<div class="ui-block-'.$tab_classes[$num]."\">\n";
-				echo $items["time"];
+				echo substr($items["time"],0,10);
 				echo "\n</div>\n";
 				$num++;
 				$entry_num = 0;

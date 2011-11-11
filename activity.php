@@ -14,35 +14,42 @@ include('sqlitedb.php');
 			$item = $result->fetch();
 			if ($item != null){
 				$type = $item["type"];
+				$user_info = $facebook->api('/'.$item["userid"]);
+				$user_name = "User ".$item["userid"];
+				if ($user_info != false){
+					$user_name= $user_info["name"];
+				}
+				if ($user == $item["userid"])
+					$user_name = "You";
 				//type 0 is bench 
 				if (strcmp('bench',$type) == 0){
 					//add name for user later
-					echo "User ".$item["userid"]." benched ".$item["entry1"]." reps of ".$item["entry2"]." pounds.";
+					echo $user_name." benched ".$item["entry1"]." reps of ".$item["entry2"]." pounds.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}
 				else if (strcmp('biceps',$type) == 0){
-					echo "User ".$item["userid"]." did ".$item["entry1"]." reps of ".$item["entry2"]." pounds for biceps.";
+					echo $user_name." did ".$item["entry1"]." reps of ".$item["entry2"]." pounds for biceps.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}
 				else if (strcmp('pushups',$type) == 0){
-					echo "User ".$item["userid"]." did ".$item["entry1"]." pushups.";
+					echo $user_name." did ".$item["entry1"]." pushups.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}
 				else if (strcmp('running',$type) == 0){
-					echo "User ".$item["userid"]." ran ".$item["entry1"]." miles in ".$item["entry2"]." minutes.";
+					echo $user_name." ran ".$item["entry1"]." miles in ".$item["entry2"]." minutes.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}
 				else if (strcmp('situps',$type) == 0){
-					echo "User ".$item["userid"]." did ".$item["entry1"]." sit-ups.";
+					echo $user_name." did ".$item["entry1"]." sit-ups.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}
 				else{
-					echo "User ".$item["userid"]." spent ".$item["entry1"]." minutes doing other activity in the gym.";
+					echo $user_name." spent ".$item["entry1"]." minutes doing other activity in the gym.";
 					echo "<br/>".$item["time"];
 					echo "<br/> <br/>";
 				}

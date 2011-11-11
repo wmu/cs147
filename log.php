@@ -17,8 +17,20 @@ $(document).ready(function(){
     }
   });
   $("#select-activity").change(selectChange);
+  $(".x_button").click(removeLogField);
 });
 var globalActivities = <?= json_encode($global_activities); ?>;
+
+function removeLogField() {
+  var name = $(this).parent().attr("id");
+  reselect(name);
+  $(this).parent().remove();
+}
+
+function reselect(name) {
+  var ind = $("#select-activity").children().index($("#select-activity option[value="+name+"]"));
+  $("#select-activity-menu li[data-option-index="+ind+"]").removeClass("ui-disabled").removeAttr("aria-disabled");
+}
 
 function deselect(name) {
   var ind = $("#select-activity").children().index($("#select-activity option[value="+name+"]"));
@@ -28,7 +40,10 @@ function deselect(name) {
 function selectChange() {
   $(this).children("option:selected").each(function () {
     var name = $(this).val(); 
-    var fieldDiv = $("<div>").attr("id", name).append($("<b>").append(globalActivities[name]['name'])).append($("<br>"));
+    var xButton = $("<a>").attr("href", "#").attr("data-role", "button").attr("data-icon", "delete").attr("data-iconpos", "notext").attr("data-inline", true).attr("class", "x_button").text("Delete").buttonMarkup();
+    //<a href="index.html" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a> 
+    var title = $("<b>").append(globalActivities[name]['name']).append($("<br>"));
+    var fieldDiv = $("<div>").attr("id", name).append(xButton).append(title);
     deselect(name);
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;
@@ -37,14 +52,13 @@ function selectChange() {
       fieldDiv.append(label).append(inputField);
       $(this).removeAttr("selected");
     });
-    $("#log_form").append(fieldDiv).append($("<br>"));
+    $("#log_form").append(fieldDiv.append($("<br>")));
   });
   $('input').textinput();
-  console.log($(this).val());
   $(this).val("default");
   $(this).parent().find(".ui-btn-text").text("Add an activity...");
-  console.log($(this).val());
   $('select').selectmenu();
+  $(".x_button").click(removeLogField);
 }
 </script>
 

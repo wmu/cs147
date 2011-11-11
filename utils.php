@@ -33,7 +33,7 @@ function show_back()
 {
   $url = basename($_SERVER['PHP_SELF']);
   $logged_out_urls = array('index.php');
-  if (in_array($url, $logged_out_urls) || strpos($url, "dialog") == 0) {
+  if (in_array($url, $logged_out_urls) || strpos($url, "dialog") === 0) {
     return false;
   }
   return true;
@@ -43,7 +43,7 @@ function show_logout()
 {
   $url = basename($_SERVER['PHP_SELF']);
   $logged_out_urls = array('index.php', 'create.php');
-  if (in_array($url, $logged_out_urls) || strpos($url, "dialog") == 0) {
+  if (in_array($url, $logged_out_urls) || strpos($url, "dialog") === 0) {
     return false;
   }
   return true;

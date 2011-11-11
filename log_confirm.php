@@ -14,16 +14,20 @@ try{
 	$id = $user;
 	$total_points = 0;
 	foreach ($global_activities as $act => $act_details) {
-		$finalstring.= '<b>' . $act_details['name'] . "</b><br>\n";
+		$act_string = '<b>' . $act_details['name'] . "</b><br>\n";
 		$query = "insert into activity values ($id,'$date','$act',";
 		$total = 0;
 		$value1 = 0;
 		$value2 = 0;
+    $show = true;
 		foreach ($act_details['details'] as $det => $det_name) {
 			$name = $act . '-' . $det;
-			$finalstring.=  '<b>' .$det_name. ":</b> ";
 			$num = $_POST[$name] ? $_POST[$name] : 0;
-			$finalstring.= $num."<br>\n";
+      if ($num == 0) {
+        $show = false;
+      }
+      $act_string.=  '<b>' .$det_name. ":</b> ";
+      $act_string.= $num."<br>\n";
 			if ($num == 0 || strcmp($query,"null") == 0)
 				$query = "null";
 			else
@@ -34,6 +38,9 @@ try{
 				$value2 = $num;	
 			$total++;
 		}
+    if ($show) {
+      $finalstring .= $act_string . "<br><br>\n";
+    }
 		if (strcmp($query,"null") != 0){
 			if ($total < 2){
 				//activities with one entry are situps, pushups and other gym time
@@ -54,7 +61,6 @@ try{
 				$query.="0);";
 			}
 		}
-		$finalstring.=  "<br><br>\n";
 		if (strcmp($query,"null") != 0){
 			$insertintodatabase = $db->query($query);
 		}

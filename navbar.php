@@ -1,21 +1,23 @@
-<div data-role="footer" data-id="myfooter" data-position="fixed" style="top: 0px;" role="contentinfo" class="ui-footer ui-bar-a ui-footer-fixed fade ui-fixed-inline" >		
-  <div data-role="navbar">
-    <ul>
       <style>	
 		.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+		.nav-glyphish-example .ui-btn .ui-icon { height: 30px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 <?php
 $tabs = array("leaderboard.php" => "leaderboard",
 			  "activity.php" => "activity",
 			  "history.php" => "history",
 			  "log.php" => "log");
 foreach($tabs as $url => $text){
-  echo '#'.get_navbar_class($url).'ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; background-size: 24px 22px; }';
+  echo '#'.$text.' .ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; }';
 }
 ?>
       </style>
+<div data-role="footer" data-id="myfooter" data-position="fixed" style="top: 0px;" role="contentinfo" class="nav-glyphish-example" >		
+  <div data-role="navbar" class="nav-glyphish-example">
+    <ul>
+
+      <?php
 foreach ($tabs as $url => $text) {
-  echo '<li><a href="'.$url.'" class="'.get_navbar_class($url).'" rel="external"></a></li>';
+  echo '<li><a href="'.$url.'" id="'.$text.'" class="'.get_navbar_class($url).'" data-icon="custom"></a></li>';
 }
 ?>
     </ul>

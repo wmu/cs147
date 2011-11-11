@@ -10,24 +10,41 @@ strong {
 
 #leaderboard .ui-block-a {
   text-align: right;
-  width: 15%;
+  width: 8%;
 }
 
 #leaderboard .ui-block-a .place_num {
-  margin-right: 20px;
+  font-size: 1.3em;
+  margin-right: 10px;
   text-align: right;
 }
 
-#leaderboard .ui-block-b{
-  width: 70%;
+#leaderboard .ui-block-b {
+  width: 65%;
+}
+
+#leaderboard .ui-block-b .user_pic {
+  display: inline-block;
+  float: left;
+  width: 50px;
+}
+
+#leaderboard .ui-block-b .user_name {
+  display: inline-block;
+  float: left;
+  padding: 0px 0px 0px 7px;
 }
 
 #leaderboard .ui-block-c {
-  width: 15%;
-}
-
-#leaderboard .ui-block-c {
+  font-size: 1.3em;
   text-align: right;
+  width: 27%;
+}
+
+#leaderboard .ui-block-a,
+#leaderboard .ui-block-b .user_name,
+#leaderboard .ui-block-c {
+  padding-top: 15px;
 }
 
 .ui-selectmenu {

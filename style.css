@@ -30,3 +30,8 @@ strong {
 .ui-field-contain {
   border-bottom: 0px;
 }
+
+label.error {
+  color: #ff0000;
+  display: block !important;
+}

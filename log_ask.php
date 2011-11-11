@@ -9,13 +9,20 @@ echo $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
 ?>
 <?php
 foreach ($global_activities as $act => $act_details) {
-	echo '<b>' . $act_details['name'] . "</b><br>\n";
+	$echo_str = '<b>' . $act_details['name'] . "</b><br>\n";
+  $show = true;
 	foreach ($act_details['details'] as $det => $det_name) {
 	  $name = $act . '-' . $det;
 	  $num = $_POST[$name] ? $_POST[$name] : 0;
-	  echo '<b>' .$det_name. ':</b> '.$num."<br>\n";
+    $echo_str .= '<b>' .$det_name. ':</b> '.$num."<br>\n";
+    if ($num == 0) {
+	    $show = false;
+    }
 	}
-	echo "<br><br>\n";
+	if ($show) {
+    $echo_str .= "<br><br>\n";
+    echo $echo_str;
+  }
 }
 ?>
 <form action="log_confirm.php" method="post">

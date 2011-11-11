@@ -4,7 +4,18 @@ include('header.php');
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $("#logForm").validate();
+  $("#logForm").validate({
+    rules: {
+      <?php
+        foreach ($global_activities as $act => $act_details) {
+          foreach ($act_details['details'] as $det => $det_name) {
+            $name = $act . '-' . $det;
+            echo '"'.$name."\": {min: 1},\n";
+          }
+        }
+      ?>
+    }
+  });
   $("#select-activity").change(selectChange);
 });
 var globalActivities = <?= json_encode($global_activities); ?>;
@@ -12,23 +23,12 @@ var globalActivities = <?= json_encode($global_activities); ?>;
 function deselect(name) {
   var ind = $("#select-activity").children().index($("#select-activity option[value="+name+"]"));
   $("#select-activity-menu li[data-option-index="+ind+"]").addClass("ui-disabled").removeClass("ui-btn-hover-c").removeClass("ui-btn-active").attr("aria-disabled", true).attr("aria-selected", false);
-  //
-  /*$("#select-activity-menu").children().each(function() {
-    console.log(name);
-    if (name == $(this).val()) {
-      $(this).attr("disabled", "disabled");
-    }
-  });*/
 }
 
 function selectChange() {
   $(this).children("option:selected").each(function () {
     var name = $(this).val(); 
     var fieldDiv = $("<div>").attr("id", name).append($("<b>").append(globalActivities[name]['name'])).append($("<br>"));
-    /*var select = $(this).parent();
-    var selectClass = "."+select.attr("id")
-    $(selectClass).empty();*/
-    /*inputToActivity[inputToClass.indexOf(select.attr("id"))] = name;*/
     deselect(name);
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;

@@ -92,3 +92,17 @@ label.error {
 .ui-icon-logout {
   background-image: url('images/logout.png');
 }
+
+#recent_activity .ui-block-a .points {
+  font-size: 1.3em;
+  margin-right: 10px;
+  text-align: right;
+}
+
+#recent_activity .ui-block-a {
+  width: 15%;
+}
+
+#recent_activity .ui-block-b {
+  width: 85%;
+}

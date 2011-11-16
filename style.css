@@ -88,3 +88,7 @@ label.error {
   top: 0.4em;
   vertical-align: top;
 }
+
+.ui-icon-logout {
+  background-image: url('images/logout.png');
+}

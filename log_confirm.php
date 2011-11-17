@@ -43,21 +43,13 @@ try{
     }
 		if (strcmp($query,"null") != 0){
 			if ($total < 2){
-				//activities with one entry are situps, pushups and other gym time
-				if (strcmp($act,'situps') == 0 || strcmp($act,'pushups') == 0)
-					$total_points += 10*$value1;
-				else
-					$total_points += 50*$value1;
+				$total_points += get_points($act, $value1, 1);
 				$query.="0,0);";
 			}
 			//only running has a different factor (15). the other exercises are just direct multiplication of value1 and value2
 			else{
 				//if running then different factor
-				if (strcmp($act,'running') == 0)
-					$total_points += $value1*$value2*15;
-				else
-					$total_points += $value1*$value2;
-				
+				$total_points += get_points($act, $value1, $value2);
 				$query.="0);";
 			}
 		}

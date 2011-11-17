@@ -29,6 +29,17 @@ $global_activities =
 					),
     );
 
+function get_points($act_type, $first_value, $second_value)
+{
+  if (strcmp($act_type,'situps') == 0 || strcmp($act_type,'pushups') == 0)
+    return $first_value*10;
+  else if (strcmp($act_type,'other') == 0)
+    return $first_value*50;
+  else if (strcmp($act_type, 'running') == 0)
+    return $first_value*$second_value*15;
+  else
+    return $first_value*$second_value;
+}
 function show_back()
 {
   $url = basename($_SERVER['PHP_SELF']);

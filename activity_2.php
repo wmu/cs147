@@ -8,7 +8,7 @@ include('sqlitedb.php');
 function get_points_and_text ($item, $fb) {
   $type = $item["type"];
   $str = "";
-  $pts = 0;
+  $pts = get_points($type,$item["entry1"],$item["entry2"]);
   $user_info = $fb->api('/'.$item["userid"]);
   $user_name = "User ".$item["userid"];
   if ($user_info != false){
@@ -39,6 +39,10 @@ function get_points_and_text ($item, $fb) {
   return array($str, $pts);
 }
 
+$your_points_query = "select points from points where userid=".$user;
+$points_result = $db->query($your_points_query);
+$user_points = $points_result->fetch();
+echo "<center> Your Points: ".$user_points[0]." </center> <br/> <br/>";
 	//total number of recent activities that need to be displayed
 	$total_number_displayed = 10;
 	try{

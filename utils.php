@@ -105,7 +105,7 @@ function get_navbar_class($url)
 function display_time($time) {
   $now = time();
   $diff = $now - $time;
-  echo $time. " " .$now. " " . ($diff)."<br>";
+  //echo $time. " " .$now. " " . ($diff)."<br>";
   if ($diff < 60) {
     $secs = round($diff);
     return $secs . " second".(($secs>1)?"s":""). " ago";

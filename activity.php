@@ -8,7 +8,7 @@ include('sqlitedb.php');
 function get_points_and_text ($item, $fb) {
   $type = $item["type"];
   $str = "";
-  $pts = 0;
+  $pts = get_points($type,$item["entry1"],$item["entry2"]);
   $user_info = $fb->api('/'.$item["userid"]);
   $user_name = "User ".$item["userid"];
   if ($user_info != false){
@@ -29,23 +29,27 @@ function get_points_and_text ($item, $fb) {
       break;
     case 'running':
       $str = $user_name." ran ".$item["entry1"]." miles in ".$item["entry2"]." minutes.";
+      break;
     case 'situps':
       $str = $user_name." did ".$item["entry1"]." sit-ups.";
       break;
     default:
       $str = $user_name." spent ".$item["entry1"]." minutes doing other activity in the gym.";
   }
-  $str .= "<br/>".display_time($item["time"])."<br/><br/>";
+  $str .= "<br/>".display_time($item["unix_time"])."<br/><br/>";
   return array($str, $pts);
 }
 
+$your_points_query = "select points from points where userid=".$user;
+$points_result = $db->query($your_points_query);
+$user_points = $points_result->fetch();
+echo "<center> Your Points: ".$user_points[0]." </center> <br/> <br/>";
 	//total number of recent activities that need to be displayed
 	$total_number_displayed = 10;
 	try{
-		$query = "select * from activity order by time desc;";
+		$query = "select *, strftime('%s',time) as 'unix_time' from activity order by time desc;";
 		$result = $db->query($query);
-		
-		for ($i = 0; $i < $total_number_displayed; $i++){
+    for ($i = 0; $i < $total_number_displayed; $i++){
 			$item = $result->fetch();
 			if ($item != null){
         list($str, $pts) = get_points_and_text($item, $facebook);

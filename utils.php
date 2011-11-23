@@ -29,6 +29,17 @@ $global_activities =
 					),
     );
 
+function get_points($act_type, $first_value, $second_value)
+{
+  if (strcmp($act_type,'situps') == 0 || strcmp($act_type,'pushups') == 0)
+    return $first_value*10;
+  else if (strcmp($act_type,'other') == 0)
+    return $first_value*50;
+  else if (strcmp($act_type, 'running') == 0)
+    return $first_value*$second_value*15;
+  else
+    return $first_value*$second_value;
+}
 function show_back()
 {
   $url = basename($_SERVER['PHP_SELF']);
@@ -93,6 +104,26 @@ function get_navbar_class($url)
 
 function display_time($time) {
   $now = time();
-  return $time . ' ' . $now;
+  $diff = $now - $time;
+  echo $time. " " .$now. " " . ($diff)."<br>";
+  if ($diff < 60*60) {
+    $secs = round($diff);
+    return $secs . " second".(($secs>1)?"s":""). " ago";
+  } else if ($diff < 60*60*24) {
+    $mins = round($diff / 60);
+    return $mins . " minute".(($mins>1)?"s":""). " ago";
+  } else if ($diff < 60*60*24) {
+    $hrs = round($diff / (60*60));
+    return $hrs . " hour".(($hrs>1)?"s":""). " ago";
+  } else if ($diff < 60*60*24*30) {
+    $days = round($diff / (60*60*24));
+    return $days . " day".(($days>1)?"s":""). " ago";
+  } else if ($diff < 60*60*24*30*12) {
+    $months = round($diff / (60*60*24*30));
+    return $months . " month".(($months>1)?"s":""). " ago";
+  } else {
+    $yrs = round($diff / (60*60*24*30*12));
+    return $yrs . " year".(($yrs>1)?"s":""). " ago";
+  }
 }
 ?>

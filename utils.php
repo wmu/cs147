@@ -90,4 +90,9 @@ function get_navbar_class($url)
     return "ui-btn-active";
   }
 }
+
+function display_time($time) {
+  $now = time();
+  return $time . ' ' . $now;
+}
 ?>

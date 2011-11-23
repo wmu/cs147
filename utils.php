@@ -106,10 +106,10 @@ function display_time($time) {
   $now = time();
   $diff = $now - $time;
   echo $time. " " .$now. " " . ($diff)."<br>";
-  if ($diff < 60*60) {
+  if ($diff < 60) {
     $secs = round($diff);
     return $secs . " second".(($secs>1)?"s":""). " ago";
-  } else if ($diff < 60*60*24) {
+  } else if ($diff < 60*60) {
     $mins = round($diff / 60);
     return $mins . " minute".(($mins>1)?"s":""). " ago";
   } else if ($diff < 60*60*24) {

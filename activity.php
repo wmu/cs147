@@ -36,7 +36,7 @@ function get_points_and_text ($item, $fb) {
     default:
       $str = $user_name." spent ".$item["entry1"]." minutes doing other activity in the gym.";
   }
-  $str .= "<br/>".display_time($item["unix_time"])."<br/><br/>";
+  $str .= "<br/>".display_time($item["time"])."<br/><br/>";
   return array($str, $pts);
 }
 
@@ -47,7 +47,7 @@ echo "<center> Your Points: ".$user_points[0]." </center> <br/> <br/>";
 	//total number of recent activities that need to be displayed
 	$total_number_displayed = 10;
 	try{
-		$query = "select *, strftime('%s',time) as 'unix_time' from activity order by time desc;";
+		$query = "select * from activity order by time desc;";
 		$result = $db->query($query);
     for ($i = 0; $i < $total_number_displayed; $i++){
 			$item = $result->fetch();

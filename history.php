@@ -7,54 +7,60 @@ include('sqlitedb.php');
 //should get actual user id at some point
 $userid = $user;
 foreach ($global_activities as $act => $act_details) {
-	echo '<div data-role="collapsible">';
-	echo '<h3>' .$act_details['name']. '</h3>';
+  $head = "";
+	$head .= '<div data-role="collapsible">';
+	$head .= '<h3>' .$act_details['name']. '</h3>';
 	$tab_classes = array('a','b','c','d');
 	$tab_ind = count($act_details['details'])-1;
 	if ($tab_ind < 0) $tab_ind = 0;
 	$tab_class = 'ui-grid-' . $tab_classes[$tab_ind];
-	echo '<div class="'.$tab_class."\">\n";
+	$head .= '<div class="'.$tab_class."\">\n";
 	$num_entries = 5;
 	$num = 0;
-	echo '<div class="ui-block-'.$tab_classes[$num]."\">\n";
-	echo '<b>Date</b>';
-	echo "\n</div>\n";
+	$head .= '<div class="ui-block-'.$tab_classes[$num]."\">\n";
+	$head .= '<b>Date</b>';
+	$head .= "\n</div>\n";
 	$num++;
 	foreach ($act_details['details'] as $det => $det_name) {
-	  echo '<div class="ui-block-'.$tab_classes[$num]."\">\n";
-	  echo '<b>' .$det_name. "</b> ";
-	  echo "\n</div>\n";
+	  $head .= '<div class="ui-block-'.$tab_classes[$num]."\">\n";
+	  $head .= '<b>' .$det_name. "</b> ";
+	  $head .= "\n</div>\n";
 	  $num++;
 	}
 	try{
+    $show = false;
 		$query = "select * from activity where type='".$act."' and userid=".$userid." order by time desc;";
 		$result = $db->query($query);
+    $disp = "";
 		for ($i = 0; $i < $num_entries; ++$i) {
 			$items=$result->fetch();
-			if (items != null){
+			if ($items){
+        $show = true;
 				$num = 0;
-				echo '<div class="ui-block-'.$tab_classes[$num]."\">\n";
-				echo substr($items["time"],0,10);
-				echo "\n</div>\n";
+				$disp .= '<div class="ui-block-'.$tab_classes[$num]."\">\n";
+				$disp .= date("n/j", $items["time"]);
+				$disp .= "\n</div>\n";
 				$num++;
 				$entry_num = 0;
 				foreach ($act_details['details'] as $det => $det_name) {
-				  echo '<div class="ui-block-'.$tab_classes[$num]."\">\n";
+				  $disp .= '<div class="ui-block-'.$tab_classes[$num]."\">\n";
 				  if ($entry_num == 0)
-					echo $items["entry1"];
+            $disp .= $items["entry1"];
 				  else
-					echo $items["entry2"];
-				  echo "\n</div>\n";
+            $disp .= $items["entry2"];
+          $disp .= "\n</div>\n";
 				  $num++;
 				  $entry_num++;
 				}
 			}
 		}
+    if ($show) {
+      echo $head . $disp . "</div>\n</div>\n";
+    }
 	}
 	catch(PDOException $e){
 		echo "Unable to get history from database. <br/>";	
 	}
-	echo "</div>\n</div>\n";
 }
 ?>
 

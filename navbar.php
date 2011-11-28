@@ -7,7 +7,7 @@ $tabs = array("leaderboard.php" => "leaderboard",
 			  "history.php" => "history",
 			  "log.php" => "log");
 foreach($tabs as $url => $text){
-  echo '#'.$text.' .ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; }';
+  echo '#'.$text.' .ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; background-size: 20px 19px;}';
 }
 ?>
       </style>

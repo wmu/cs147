@@ -1,8 +1,8 @@
       <style>	
-		.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-		.nav-glyphish-example .ui-btn .ui-icon { height: 30px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+		.nav-glyphish-example .ui-btn .ui-btn-inner { padding: 28px 8px 0.3em; }
+		.nav-glyphish-example .ui-btn .ui-icon { height: 25px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 <?php
-$tabs = array("leaderboard.php" => "leaderboard",
+$tabs = array("ranking.php" => "ranking",
 			  "activity.php" => "activity",
 			  "history.php" => "history",
 			  "log.php" => "log");

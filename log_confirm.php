@@ -3,13 +3,11 @@ include('header.php');
 include('sqlitedb.php');
 ?>
 
-Saved!
-<br><br>
-
 <?php
 $finalstring = $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
 //need to eventually change id to actual user id
 try{
+  echo "Saved!<br><br>";
 	$date = time();
 	$id = $user;
 	$total_points = 0;

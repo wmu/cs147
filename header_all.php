@@ -1,6 +1,7 @@
 <?php
 include('utils.php');
 include('facebook_header.php');
+include('sqlitedb.php');
 ?>
 
 <?php
@@ -33,7 +34,14 @@ include('facebook_header.php');
 		echo '<a href="'.$help_url.'" data-rel="dialog" data-icon="info" data-iconpos="notext" class="ui-btn-left"></a>';
 	  }
 	?>
-    <h1><?php echo get_hdr_title(); ?></h1>
+    <h1>
+<?php
+  $your_points_query = "select points from points where userid=".$user;
+  $points_result = $db->query($your_points_query);
+  $user_points = $points_result->fetch();
+  echo "Your Points: ".$user_points[0];
+?>
+</h1>
 	<?php
 	  if (show_logout()) {
 		echo '<a href='.$facebook->getLogoutUrl().' data-icon="logout" data-iconpos="notext" class="ui-btn-right"></a>';

@@ -23,7 +23,7 @@ $global_activities =
                           'details' => array('num' => 'Number',
 							)
 					),
-		'other' => array('name' => 'Other',
+		'other' => array('name' => 'Other Activity',
                           'details' => array('time' => 'Minutes',
 							)
 					),
@@ -53,7 +53,7 @@ function show_back()
 function get_help_url()
 {
   $url = basename($_SERVER['PHP_SELF']);
-  $need_help_urls = array('leaderboard.php', 'activity.php', 'history.php', 'log.php');
+  $need_help_urls = array('ranking.php', 'activity.php', 'history.php', 'log.php');
   if (in_array($url, $need_help_urls)) {
     return "dialog_tutorial_".$url;
   }
@@ -76,11 +76,11 @@ function get_hdr_title()
   $url_to_title = array('index.php' => 'iWorkout',
                         'create.php' => 'Create Account',
                         'create_confirm.php' => 'Create Account',
-						'leaderboard.php' => 'Leaderboard',
+						'ranking.php' => 'Ranking',
 						'activity.php' => 'Friend Activity',
 						'history.php' => 'Your History',
 						'log.php' => 'Log Activity',
-            'dialog_tutorial_leaderboard.php' => 'Leaderboard',
+            'dialog_tutorial_leaderboard.php' => 'Ranking',
 						'dialog_tutorial_activity.php' => 'Friend Activity',
 						'dialog_tutorial_history.php' => 'Your History',
 						'dialog_tutorial_log.php' => 'Log Activity',

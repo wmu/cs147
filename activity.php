@@ -1,6 +1,5 @@
 <?php
 include('header.php');
-include('sqlitedb.php');
 ?>
 <br/>
 <div id="recent_activity">
@@ -36,14 +35,10 @@ function get_points_and_text ($item, $fb) {
     default:
       $str = $user_name." spent ".$item["entry1"]." minutes doing other activity in the gym.";
   }
-  $str .= "<br/>".display_time($item["time"])."<br/><br/>";
+  $str .= "<br/><span class=\"activity_time\">".display_time($item["time"])."</span><br/><br/>";
   return array($str, $pts);
 }
 
-$your_points_query = "select points from points where userid=".$user;
-$points_result = $db->query($your_points_query);
-$user_points = $points_result->fetch();
-echo "<center> Your Points: ".$user_points[0]." </center> <br/> <br/>";
 	//total number of recent activities that need to be displayed
 	$total_number_displayed = 10;
 	try{

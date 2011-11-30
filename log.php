@@ -47,7 +47,7 @@ function selectChange() {
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;
       var label = $("<label>").attr("for", labelName).text(detName);
-      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).attr("value", 0).addClass("required").addClass("digits");
+      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).addClass("required").addClass("digits");
       fieldDiv.append(label).append(inputField);
       $(this).removeAttr("selected");
     });
@@ -61,52 +61,10 @@ function selectChange() {
 }
 </script>
 
-Please enter positive integer values for the following information:
-<br>
+<!--Please enter positive integer values for the following information:
+<br><br>-->
 <form action="log_ask.php" method="post" id="logForm">
-<div data-role="fieldcontain">
-<fieldset data-role="controlgroup" data-type="horizontal">
-	<legend>Date:</legend>
-
-    <label for="month">Month</label>
-<select name="month" id="month">
-	<?php
-	$today = time();
-	for ($i = 1; $i <= 12; ++$i) {
-	  $month = mktime(0, 0, 0, $i);
-	  $selected = ((date('m', $month) == date('m', $today)) ? ' selected="selected"' : '');
-	  echo '<option value="' . date('m', $month) . '"' . $selected . '>' . date('M', $month) . "</option>\n";
-	}
-	?>
-</select>
-
-	<label for="day">Day</label>
-<select name="day" id="day">
-	<?php
-	// this should be error checked.
-	for ($i = 1; $i <= 31; ++$i) {
-	  $day = mktime(0, 0, 0, 1, $i);
-	  $selected = ((date('d', $day) == date('d', $today)) ? ' selected="selected"' : '');
-	  echo '<option value="' . date('d', $day) . '"' . $selected . '>' . date('d', $day) . "</option>\n";
-	}
-	?>
-</select>
-
-<label for="year">Year</label>
-<select name="year" id="year">
-	<?php
-	$today = time();
-	for ($i = 2010; $i <= 2012; ++$i) {
-	  $year = mktime(0, 0, 0, 1, 1, $i);
-	  $selected = ((date('Y', $year) == date('Y', $today)) ? ' selected="selected"' : '');
-	  echo '<option value="' . date('Y', $year) . '"' . $selected . '>' . date('Y', $year) . "</option>\n";
-	}
-	?>
-</select>
-</fieldset>
-</div>
 <div id="log_form">
-</div>
 <br>
 <div id="select_activity_div">
 <label for="select-activity" class="ui-hidden-accessible">Add activity</label>
@@ -118,6 +76,7 @@ Please enter positive integer values for the following information:
     }
   ?>
 </select>
+</div>
 </div>
 <br>
 <input type="submit" value="Log!" data-icon="check" data-theme="b">

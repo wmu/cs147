@@ -5,9 +5,6 @@ include('header.php');
 Are you sure you want to log this activity?
 <br><br>
 <?php
-echo $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
-?>
-<?php
 foreach ($global_activities as $act => $act_details) {
 	$echo_str = '<b>' . $act_details['name'] . "</b><br>\n";
   $show = true;

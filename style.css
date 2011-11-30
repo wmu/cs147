@@ -27,6 +27,7 @@ strong {
   display: inline-block;
   float: left;
   width: 50px;
+  margin: 2px 0px;
 }
 
 #leaderboard .ui-block-b .user_name {
@@ -44,7 +45,7 @@ strong {
 #leaderboard .ui-block-a,
 #leaderboard .ui-block-b .user_name,
 #leaderboard .ui-block-c {
-  padding-top: 15px;
+  padding-top: 17px;
 }
 
 .ui-selectmenu {
@@ -89,6 +90,11 @@ label.error {
   vertical-align: top;
 }
 
+#log_form  #select_activity_div  .ui-select .ui-btn-text {
+  font-size: 1.1em;
+  padding: 10px 0px;
+}
+
 .ui-icon-logout {
   background-image: url('images/logout.png');
 }
@@ -100,9 +106,14 @@ label.error {
 }
 
 #recent_activity .ui-block-a {
-  width: 15%;
+  width: 20%;
+}
+
+#recent_activity .ui-block-b .activity_time {
+  font-size: 80%;
+  opacity: 0.6;
 }
 
 #recent_activity .ui-block-b {
-  width: 85%;
+  width: 80%;
 }

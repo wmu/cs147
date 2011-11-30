@@ -90,7 +90,7 @@ label.error {
   vertical-align: top;
 }
 
-#log_form  #select_activity_div  .ui-select .ui-btn-text {
+#select_activity_div  .ui-select .ui-btn-text {
   font-size: 1.1em;
   padding: 10px 0px;
 }

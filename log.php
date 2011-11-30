@@ -64,8 +64,10 @@ function selectChange() {
 <!--Please enter positive integer values for the following information:
 <br><br>-->
 <form action="log_ask.php" method="post" id="logForm">
-<div id="log_form">
 <br>
+<br>
+<div id="log_form">
+</div>
 <div id="select_activity_div">
 <label for="select-activity" class="ui-hidden-accessible">Add activity</label>
 <select name="select-activity" id="select-activity" data-native-menu="false">
@@ -76,7 +78,6 @@ function selectChange() {
     }
   ?>
 </select>
-</div>
 </div>
 <br>
 <input type="submit" value="Log!" data-icon="check" data-theme="b">

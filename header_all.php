@@ -42,6 +42,8 @@ include('sqlitedb.php');
     $your_points_query = "select points from points where userid=".$user;
     $points_result = $db->query($your_points_query);
     $user_points = $points_result->fetch();
+	if (!$user_points[0])
+		$user_points[0] = 0;
     echo "Your Points: ".$user_points[0];
     echo " <a href=\"points.php\" data-rel=\"dialog\">(?)</a>";
   }

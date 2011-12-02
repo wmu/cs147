@@ -10,20 +10,20 @@ if ($user) {
 		$fl_result = $db->query($first_login);
 		$is_first_login = $fl_result->fetch();
 		//redirect if first login to tutorial
-		if ($is_first_login[0] == 0){
+		/*if ($is_first_login[0] == 0){
 			echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/tutorial.php'>";
 			exit;
 		}
 		else{
 			echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
 			exit;
-		}
+		}*/
 	}
 	catch(PDOException $e){
 		echo "Database cannot be accessed.";
 	}
-	//echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
-	//exit;
+	echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
+	exit;
 	
 }?>
 

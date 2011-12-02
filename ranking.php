@@ -12,7 +12,11 @@ try{
 		$leaders = $result->fetch();
 		if ($leaders != null){
 			echo "<div class=\"ui-block-a\">\n";
-			echo '<span class="place_num">'.($i+1).'</span>';
+			echo '<span class="place_num">';
+      if ($user == $leaders["userid"]) echo "<b>";
+      echo ($i+1);
+      if ($user == $leaders["userid"]) echo "</b>";
+      echo '</span>';
 			echo "\n</div>\n";
 			echo "<div class=\"ui-block-b\">\n";
 			echo "<div class=\"user_pic\">\n";

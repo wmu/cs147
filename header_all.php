@@ -27,7 +27,7 @@ include('sqlitedb.php');
 
 </head>
 <body>
-<div data-role="page">
+<div data-role="page" id="main_page">
   <div data-role="header">
     <?php
 	  if ($help_url = get_help_url()) {
@@ -36,10 +36,15 @@ include('sqlitedb.php');
 	?>
     <h1>
 <?php
-  $your_points_query = "select points from points where userid=".$user;
-  $points_result = $db->query($your_points_query);
-  $user_points = $points_result->fetch();
-  echo "Your Points: ".$user_points[0];
+  if (is_tutorial()) {
+    echo get_hdr_title();
+  } else {
+    $your_points_query = "select points from points where userid=".$user;
+    $points_result = $db->query($your_points_query);
+    $user_points = $points_result->fetch();
+    echo "Your Points: ".$user_points[0];
+    echo " <a href=\"points.php\" data-rel=\"dialog\">(?)</a>";
+  }
 ?>
 </h1>
 	<?php

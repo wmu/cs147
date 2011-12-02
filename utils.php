@@ -29,6 +29,8 @@ $global_activities =
 					),
     );
 
+$popups = array('dialog_tutorial_ranking.php', 'dialog_tutorial_activity.php', 'dialog_tutorial_history.php', 'dialog_tutorial_log.php','points.php');
+    
 function get_points($act_type, $first_value, $second_value)
 {
   if (strcmp($act_type,'situps') == 0 || strcmp($act_type,'pushups') == 0)
@@ -64,10 +66,21 @@ function show_logout()
 {
   $url = basename($_SERVER['PHP_SELF']);
   $logged_out_urls = array('index.php', 'create.php');
-  if (in_array($url, $logged_out_urls) || strpos($url, "dialog") === 0) {
+  global $popups;
+  if (in_array($url, $logged_out_urls) || in_array($url, $popups)) {
     return false;
   }
   return true;
+}
+
+function is_tutorial()
+{
+  $url = basename($_SERVER['PHP_SELF']);
+  global $popups;
+  if (in_array($url, $popups)) {
+    return true;
+  }
+  return false;
 }
 
 function get_hdr_title()
@@ -80,13 +93,13 @@ function get_hdr_title()
 						'activity.php' => 'Friend Activity',
 						'history.php' => 'Your History',
 						'log.php' => 'Log Activity',
-            'dialog_tutorial_leaderboard.php' => 'Ranking',
+            'dialog_tutorial_ranking.php' => 'Ranking',
 						'dialog_tutorial_activity.php' => 'Friend Activity',
 						'dialog_tutorial_history.php' => 'Your History',
 						'dialog_tutorial_log.php' => 'Log Activity',
 						'log_ask.php' => 'Log Activity',
 						'log_confirm.php' => 'Log Activity',
-						'points.php' => 'Point System');
+						'points.php' => 'Points');
   if (array_key_exists($url, $url_to_title)) {
     return $url_to_title[$url];
   }

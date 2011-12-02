@@ -47,13 +47,13 @@ function selectChange() {
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;
       var label = $("<label>").attr("for", labelName).text(detName);
-      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).addClass("required").addClass("digits");
+      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).addClass("required").addClass("digits").addClass("log_input");
       fieldDiv.append(label).append(inputField);
       $(this).removeAttr("selected");
     });
     $("#log_form").append(fieldDiv.append($("<br>")));
   });
-  $('input').textinput();
+  $('.log_input').textinput();
   $(this).val("default");
   $(this).parent().find(".ui-btn-text").text("Add an activity...");
   $('select').selectmenu();

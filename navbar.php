@@ -17,7 +17,7 @@ foreach($tabs as $url => $text){
 
       <?php
 foreach ($tabs as $url => $text) {
-  echo '<li><a href="'.$url.'" id="'.$text.'" class="'.get_navbar_class($url).'" data-icon="custom">' .ucfirst($text) .'</a></li>';
+  echo '<li><a href="'.$url.'" id="'.$text.'" class="'.get_navbar_class($url).'" data-icon="custom" rel="external">' .ucfirst($text) .'</a></li>';
 }
 ?>
     </ul>

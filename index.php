@@ -5,7 +5,7 @@ include('sqlitedb.php');
 	
 <?php
 if ($user) {
-	try{
+	/*try{
 		$first_login = "select count(points) from points where userid=".$user.";";
 		$fl_result = $db->query($first_login);
 		$is_first_login = $fl_result->fetch();
@@ -18,14 +18,14 @@ if ($user) {
 			echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
 			exit;
 		}*/
-	}
-	catch(PDOException $e){
+	//}
+	/*catch(PDOException $e){
 		echo "Database cannot be accessed.";
-	}
+	}*/
 	echo "<meta http-equiv='refresh' content='0;url=http://stanford.edu/~frankw2/cgi-bin/cs147/log.php'>";
 	exit;
-	
-}?>
+}
+?>
 
     
 <!DOCTYPE html>

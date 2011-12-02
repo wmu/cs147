@@ -34,8 +34,6 @@ include('header.php');
 </div>
 </p>
 <br><br>
-<form action="log.php" method="post">
-<input type="submit" value="back" data-icon="back">
-</form>
+<a href="#" data-rel="back" data-role="button" data-icon="back">back</a>
 
 <?php include('footer_nonavbar.php'); ?>

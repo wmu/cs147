@@ -2,10 +2,10 @@
 		.nav-glyphish-example .ui-btn .ui-btn-inner { padding: 28px 8px 0.3em; }
 		.nav-glyphish-example .ui-btn .ui-icon { height: 25px!important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
 <?php
-$tabs = array("ranking.php" => "ranking",
+$tabs = array("log.php" => "log",
+			    "ranking.php" => "ranking",
 			  "activity.php" => "activity",
-			  "history.php" => "history",
-			  "log.php" => "log");
+			  "history.php" => "history");
 foreach($tabs as $url => $text){
   echo '#'.$text.' .ui-icon { background: url(images/'.$text.'.png) 50% 50% no-repeat; background-size: 20px 19px;}';
 }

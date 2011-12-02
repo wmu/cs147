@@ -8,28 +8,28 @@ include('header.php');
     Weight Based Exercises:
   </div>
   <div class="exp">
-    POINTS = (REPS * WEIGHT)
+    POINTS = REPS * WEIGHT
   </div>
   
   <div class="cat">
     Running:
   </div>
   <div class="exp">
-    POINTS = MILES * TIME * 15
+    POINTS = MILES * MINUTES
   </div>
   
   <div class="cat">
     Sit-ups and Push-ups:
   </div>
   <div class="exp">
-    POINTS = 10 * NUMBER
+    POINTS = NUMBER
   </div>
   
   <div class="cat">
     Time Based:
   </div>
   <div class="exp">
-    POINTS = MINUTES * 50
+    POINTS = MINUTES * 5
   </div>
 </div>
 </p>

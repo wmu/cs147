@@ -1,5 +1,3 @@
-
-
 <?php
 include('facebook_header.php');
 include('sqlitedb.php');

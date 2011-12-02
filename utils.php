@@ -32,11 +32,11 @@ $global_activities =
 function get_points($act_type, $first_value, $second_value)
 {
   if (strcmp($act_type,'situps') == 0 || strcmp($act_type,'pushups') == 0)
-    return $first_value*10;
+    return $first_value;
   else if (strcmp($act_type,'other') == 0)
-    return $first_value*50;
+    return $first_value*5;
   else if (strcmp($act_type, 'running') == 0)
-    return $first_value*$second_value*15;
+    return $first_value*$second_value;
   else
     return $first_value*$second_value;
 }

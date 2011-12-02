@@ -2,17 +2,40 @@
 include('header.php');
 ?>
 
-<h1>Points explanation</h1>
-<p>
-Weight Based Exercises: POINTS = (REPS * WEIGHT) <br/> 
-Running: POINTS = MILES*TIME * 15 <br/>
-Situps and Pushups: POINTS = 10*NUMBER <br/>
-Time Based: POINTS = TIME * 50 <br/>
-(e.g. 30 min workout = 1500 pts) <br/>
+<p><br><br>
+<div id="points_exp">
+  <div class="cat">
+    Weight Based Exercises:
+  </div>
+  <div class="exp">
+    POINTS = (REPS * WEIGHT)
+  </div>
+  
+  <div class="cat">
+    Running:
+  </div>
+  <div class="exp">
+    POINTS = MILES * TIME * 15
+  </div>
+  
+  <div class="cat">
+    Sit-ups and Push-ups:
+  </div>
+  <div class="exp">
+    POINTS = 10 * NUMBER
+  </div>
+  
+  <div class="cat">
+    Time Based:
+  </div>
+  <div class="exp">
+    POINTS = MINUTES * 50
+  </div>
+</div>
 </p>
 <br><br>
-<form action="log_confirm.php" method="post">
+<form action="log.php" method="post">
 <input type="submit" value="back" data-icon="back">
 </form>
 
-<?php include('footer.php'); ?>
+<?php include('footer_nonavbar.php'); ?>

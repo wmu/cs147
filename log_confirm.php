@@ -1,10 +1,9 @@
 <?php
 include('header.php');
-include('sqlitedb.php');
 ?>
 
 <?php
-$finalstring = $_POST['month'] . '/' . $_POST['day'] . '/' . $_POST['year']. "<br><br>\n";
+$finalstring = "";
 //need to eventually change id to actual user id
 try{
   echo "Saved!<br><br>";
@@ -37,7 +36,7 @@ try{
 			$total++;
 		}
     if ($show) {
-      $finalstring .= $act_string . "<br><br>\n";
+      $finalstring .= $act_string . "<br>\n";
     }
 		if (strcmp($query,"null") != 0){
 			if ($total < 2){
@@ -68,8 +67,8 @@ try{
 	$final_points = $total_points + $current_points["points"];
 	$update_query = "update points set points=".$final_points." where userid=".$id.";";
 	$db->query($update_query);
-	echo "You have earned ".$total_points." points from your workout. <br/> <br/>";
-	echo "Your new point total is ".$final_points.". <br/> <br/>";
+	echo "You have earned <b>".$total_points."</b> points <a href=\"points.php\">(?)</a> from your workout. <br/> <br/>";
+	echo "Your new point total is <b>".$final_points."</b>. <br/> <br/>";
 	echo $finalstring;
 	
 }
@@ -78,7 +77,6 @@ catch(PDOException $e){
 }
 
 ?>
-<a href="points.php">(?)</a>
 <br><br>
 
 <form action="log.php" method="post">

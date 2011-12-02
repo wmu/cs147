@@ -26,8 +26,8 @@ strong {
 #leaderboard .ui-block-b .user_pic {
   display: inline-block;
   float: left;
-  width: 50px;
   margin: 2px 0px;
+  width: 50px;
 }
 
 #leaderboard .ui-block-b .user_name {
@@ -116,4 +116,13 @@ label.error {
 
 #recent_activity .ui-block-b {
   width: 80%;
+}
+
+#points_exp .cat {
+  font-weight: bold;
+}
+
+#points_exp .exp {
+  padding-left: 2em;
+  margin-bottom: 5px;
 }

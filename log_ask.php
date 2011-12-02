@@ -17,16 +17,13 @@ foreach ($global_activities as $act => $act_details) {
     }
 	}
 	if ($show) {
-    $echo_str .= "<br><br>\n";
+    $echo_str .= "<br>\n";
     echo $echo_str;
   }
 }
 ?>
 <form action="log_confirm.php" method="post">
 <?php
-echo '<input type="hidden" name="month" value="' .$_POST['month'] . "\"/>\n";
-echo '<input type="hidden" name="day" value="' .$_POST['day'] . "\"/>\n";
-echo '<input type="hidden" name="year" value="' .$_POST['year'] . "\"/>\n";
 foreach ($global_activities as $act => $act_details) {
 	foreach ($act_details['details'] as $det => $det_name) {
 	  $name = $act . '-' . $det;

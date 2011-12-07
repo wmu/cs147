@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="stylesheet" type="text/css" href="reset.css" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
-<link rel="stylesheet" type="text/css" href="themes/KHo147.min.css"> 
+<link rel="stylesheet" type="text/css" href="themes/final2.min.css"> 
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="utils.js"></script>
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>

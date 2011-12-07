@@ -34,8 +34,6 @@ foreach ($global_activities as $act => $act_details) {
 ?>
 <input type="submit" value="Log!" data-icon="check" data-theme="b">
 </form>
-<div class="ui-bar ui-bar-b">
 <a href="#" data-rel="back" data-role="button" data-icon="delete">Cancel</a>
-</div>
 
 <?php include('footer.php'); ?>

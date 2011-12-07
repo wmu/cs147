@@ -111,8 +111,9 @@ function get_navbar_class($url)
   $curr = basename($_SERVER['PHP_SELF']);
   $new = basename($url);
   if ($curr == $new) {
-    return "ui-btn-active";
+    return "d";
   }
+  return "a";
 }
 
 function display_time($time) {

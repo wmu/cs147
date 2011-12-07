@@ -47,7 +47,7 @@ function selectChange() {
     $.each(globalActivities[name]['details'], function(det, detName) {
       var labelName = name + '-' + det;
       var label = $("<label>").attr("for", labelName).text(detName);
-      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).addClass("required").addClass("digits").addClass("log_input");
+      var inputField = $("<input>").attr("type", "tel").attr("name", labelName).addClass("required").addClass("digits").addClass("log_input").attr("data-theme", "d");
       fieldDiv.append(label).append(inputField);
       $(this).removeAttr("selected");
     });
@@ -66,12 +66,12 @@ function selectChange() {
 <form action="log_ask.php" method="post" id="logForm">
 <br>
 <br>
-<div id="log_form">
+<div id="log_form" data-theme="d">
 </div>
 <div id="select_activity_div">
 <label for="select-activity" class="ui-hidden-accessible">Add activity</label>
-<select name="select-activity" id="select-activity" data-native-menu="false">
-  <option data-placeholder="true" id="option-select-activity-default" value="default">Add an activity...</option>
+<select name="select-activity" id="select-activity" data-native-menu="false" data-theme="a">
+  <option data-placeholder="true" id="option-select-activity-default" value="default" data-theme="a">Add an activity...</option>
   <?php
     foreach ($global_activities as $act => $act_details) {
       echo '<option value="' .$act. '">' .$act_details['name']."</option>\n";
